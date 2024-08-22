@@ -1,0 +1,20 @@
+to make any project you need to follow the given project structure for the sdk to buil simply.
+
+	project directory--
+					   |
+					   |
+					   -------dir one
+					   |
+					   |
+					   -------dir two
+					   |
+					   |
+					   ------CMakeList.txt
+					   |
+					   |
+					   ------(all other 3 files that are required for cmake)
+
+
+for setting baud rate of serial connection use 
+	$stty -F /dev/<ttydevicename> speed <speed required>
+
