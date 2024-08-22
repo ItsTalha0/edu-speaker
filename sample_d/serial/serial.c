@@ -31,8 +31,29 @@ const uint one[][7] = {
 						};//9
 
 
-void 
-int main() {
+void print_d(int num)
+{
+	int D0= num%10;
+	//num = num/10;
+	//int D1 = num%10;
+	gpio_put(d1,0);
+	gpio_put(d2,1);
+	for(int i=4;i<=10;i++)
+	{
+		gpio_put(i,one[D0][i-4]);
+	}
+	//sleep_ms(1000);
+	//gpio_put(d1,1);
+	//gpio_put(d2,0);
+	//for(int i=4;i<=10;i++)
+	//{
+	//	gpio_put(i,one[D1][i-4]);
+	//}
+}
+	
+	
+int main() 
+{
 	const uint LED_PIN= PICO_DEFAULT_LED_PIN;
 	gpio_init(11);
 	gpio_init(12);
@@ -87,15 +108,10 @@ int main() {
 	gpio_put(G,1);
 
 	sleep_ms(1000);
-	for( int j=0;j<10;j++ ){
-		for( int i=4;i<=10;i++ )
-		{
-			gpio_put(i,one[j][i-4]);
-		}
-		sleep_ms(2000);
-	}
+	
+	print_d(22);
 
-	while (false) 
+	while (true) 
 	{
 		if( gpio_get(11) )
 		{
@@ -127,6 +143,7 @@ int main() {
 				for(int i=0;i<8;i++)
 					uart_putc(uart0,play[i]);
 			}
+			print_d(counter);
 
 
 		}
